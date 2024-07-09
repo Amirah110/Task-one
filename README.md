@@ -12,6 +12,7 @@ Building a web page to control the robot's movement direction and linking it to 
 ![‏‏لقطة الشاشة (47)](https://github.com/Amirah110/Task-one/assets/173727118/42745ab5-b20f-4d65-a270-b5006d287edc)
 
 4- open the XMAPP and click start on the apache and mysql
+
 5- open the phpMyAdmine and create the database and then create the table
 ![‏‏لقطة الشاشة (49)](https://github.com/Amirah110/Task-one/assets/173727118/54baadd0-f1c1-478c-9809-1488385edeac)
 6- Establish a connection between web page and database to store data
