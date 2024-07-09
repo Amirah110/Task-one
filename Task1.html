@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK ONE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            width: 80%;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .button {
+            color: white;
+            padding: 15px 32px;
+            margin: 10px;
+            border: 2px solid #333;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button-forward { background-color: #c4c4c4; }
+        .button-left { background-color: #c4c4c4; }
+        .button-stop { background-color: #f44336; }
+        .button-right { background-color: #c4c4c4; }
+        .button-backward { background-color: #c4c4c4; }
+        .button:hover {
+            transform: scale(1.05);
+        }
+        .button:active {
+            transform: scale(0.95);
+        }
+        .inner-buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .inner-buttons .button {
+            margin: 0 5px;
+        }
+        .navigation-button {
+            margin-top: 20px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>TASK ONE</h1>
+    <h2>To control the robot's movement, press one of these buttons!</h2>
+    <div class="button-container">
+        <button class="button button-forward" onclick="sendCommand('forward')">forward</button>
+        <div class="inner-buttons">
+            <button class="button button-left" onclick="sendCommand('left')">left</button>
+            <button class="button button-stop" onclick="sendCommand('stop')">stop</button>
+            <button class="button button-right" onclick="sendCommand('right')">right</button>
+        </div>
+        <button class="button button-backward" onclick="sendCommand('backward')">backward</button>
+    </div>
+  
+
+    <script>
+        function sendCommand(command) {
+            fetch('send_command.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command: command })
+            }).then(response => response.text())
+              .then(data => console.log(data))
+              .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
